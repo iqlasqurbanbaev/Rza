@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      {% for el in product %}
+      <div class="p-4 md:w-1/3">
+        <div class="h-full border-2 border-gray-800 rounded-lg overflow-hidden">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{ el.image.url  }}" alt="blog">
+          <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">CATEGORY</h2>
+            <h1 class="title-font text-lg font-medium text-white mb-3">{{ el.name }}</h1>
+            <p class="leading-relaxed mb-3">{{ el.anons }}</p>
+            <div class="flex items-center flex-wrap ">
+            <a href="{% url 'main:update_product' el.id %}">
+              <button class="text-black bg-blue-400 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-500 rounded text-lg">Button</button>
+            </a>
+            <a href="{% url 'main' %}"></a>
+                <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"></svg>
+              <button class="text-black bg-red-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Delete</button> 
+            </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
+
+
+
+<!-- <button class="text-black bg-blue-400 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-500 rounded text-lg">Button</button>
+<svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"></svg>
+<button class="text-black bg-red-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded text-lg">Delete</button> -->
